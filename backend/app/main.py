@@ -11,8 +11,15 @@ from app.seed import seed
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    init_db()
-    seed()
+    import traceback
+    import sys
+    try:
+        init_db()
+        seed()
+    except Exception as e:
+        print("CRITICAL: Application startup failed!", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
+        sys.exit(3)
     yield
 
 
