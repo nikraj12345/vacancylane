@@ -13,6 +13,7 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://frontend:3000",
+        "https://vacancylane.vercel.app",
     ]
 
     # Real Google organic results via Serper (https://serper.dev — 2,500 free
