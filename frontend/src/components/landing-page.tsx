@@ -1140,6 +1140,49 @@ export function LandingPage() {
         </motion.div>
       </section>
 
+      {/* SEO & FAQ Section */}
+      <section className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+        <div className="border-t border-white/[0.06] pt-12">
+          <h3 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight sm:text-3xl">
+            Frequently Asked Questions
+          </h3>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <div>
+              <h4 className="text-base font-semibold text-slate-200">
+                Can I search multiple ATS boards at once?
+              </h4>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                Yes! Vacancylane is designed specifically to search multiple ATS boards at once. Instead of browsing dozens of career sites, you can search live listings across Greenhouse, Lever, Ashby, Workday, and more in a single pass.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-base font-semibold text-slate-200">
+                How do I search Greenhouse and Lever job listings directly?
+              </h4>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                Vacancylane links directly to Greenhouse and Lever job listings and APIs. This bypasses slow, third-party job aggregators and ensures you see open roles the very second they are posted on company job boards.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-base font-semibold text-slate-200">
+                How to find jobs on company career pages instead of standard aggregators?
+              </h4>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                Our crawler targets the underlying ATS engines powering company career pages. By querying these endpoints directly, we filter out expired listings and show you active hiring opportunities at the source.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-base font-semibold text-slate-200">
+                Can I search job boards by resume keywords?
+              </h4>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                Absolutely. You can paste your resume or enter your target skills to search job boards by resume keywords. This matches your background with precise qualifications required by employers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="relative z-10 border-t border-white/[0.06]">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <span>© 2026 Vacancylane</span>
