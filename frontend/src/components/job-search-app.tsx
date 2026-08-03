@@ -138,7 +138,7 @@ export function JobSearchApp({
   // On by default: a posting the ATS will not confirm as open is the main
   // source of dead links, and the toggle is there to widen the net on demand.
   const [verifiedOnly, setVerifiedOnly] = useState(true);
-  const [locationMatchOnly, setLocationMatchOnly] = useState(false);
+  const [locationMatchOnly, setLocationMatchOnly] = useState(true);
   const [minRelevance, setMinRelevance] = useState(0);
   const [sort, setSort] = useState<"relevance" | "recent" | "title">(
     "relevance"
@@ -159,6 +159,7 @@ export function JobSearchApp({
         (!resultRemoteOnly || job.is_remote) &&
         (!verifiedOnly || job.verified) &&
         (!locationMatchOnly || IN_MY_LOCATIONS.has(job.location_match)) &&
+        (!experienceBands.length || job.experience_match !== "mismatch") &&
         job.relevance_score >= minRelevance
       );
     });
@@ -361,7 +362,7 @@ export function JobSearchApp({
     setResultRemoteOnly(false);
     // Raw mode never verifies, so leaving this on would hide every result.
     setVerifiedOnly(!rawResults && verifyLive);
-    setLocationMatchOnly(false);
+    setLocationMatchOnly(!rawResults);
     setMinRelevance(0);
     try {
       const data = await searchMutation.mutateAsync(payload);
@@ -1328,11 +1329,11 @@ function JobCard({ job }: { job: JobListing }) {
                 {job.employment_type}
               </span>
             )}
-            {/* {job.experience_years && (
+            {job.experience_years && (
               <span className="rounded-md border border-amber-400/20 bg-amber-500/10 px-2 py-1 text-[10px] text-amber-300">
                 {job.experience_years} yrs
               </span>
-            )} */}
+            )}
             {job.hit_count > 1 && (
               <span
                 title={`Matched by: ${(job.matched_queries || []).join(", ")}`}
